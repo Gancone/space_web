@@ -35,11 +35,12 @@
                 <form role="search">
                     <input class="form-control mt-3" type="search" placeholder="Search" aria-label="Search">
                 </form>
+
                 @auth
 
                 <form action="{{route('logout')}}" method="POST">
                     @csrf
-                    <button type="submit">Logout</button>
+                    <button>Logout</button>
                 </form>
 
                 @endauth
