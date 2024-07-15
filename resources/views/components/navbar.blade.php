@@ -32,6 +32,9 @@
                 <a class="btn btn-success" href="{{route('register')}}">Registrati</a>
                 <a class="btn btn-info mx-2" href="{{route('login')}}">Login</a>
                 @endguest
+                @auth
+                <a class="btn btn-check" href="{{route('article.create')}}">Crea Articolo</a>
+                @endauth
                 <form role="search">
                     <input class="form-control mt-3" type="search" placeholder="Search" aria-label="Search">
                 </form>
@@ -40,7 +43,7 @@
 
                 <form action="{{route('logout')}}" method="POST">
                     @csrf
-                    <button>Logout</button>
+                    <button class="btn btn-danger ms-2 mt-3">Logout</button>
                 </form>
 
                 @endauth
