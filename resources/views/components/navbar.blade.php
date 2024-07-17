@@ -26,7 +26,7 @@
                             @foreach ($categories as $category)
 
                             <li><a class="dropdown-item"
-                                    href="{{route('article.byCategory', ['category'=> $category])}}">{{$category->name}}</a>
+                                    href="{{route('byCategory', ['category'=> $category])}}">{{$category->name}}</a>
                             </li>
                             @if (!$loop->last)
 
