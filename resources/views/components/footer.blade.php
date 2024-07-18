@@ -59,7 +59,7 @@
                             Products
                         </h6>
                         <p>
-                            <a href="#!" class="text-reset">Angular</a>
+                            <a href="{{route('become.revisor')}}" class="text-reset">diventa revisore</a>
                         </p>
                         <p>
                             <a href="#!" class="text-reset">React</a>

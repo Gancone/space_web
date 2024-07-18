@@ -10,39 +10,51 @@
         <div class="row justify-content-center pt-3">
             <div class="col-md-8">
                 @for ($i=0; $i < 6; $i++) <div class="col-6 col-md-4 mb-4 text-center">
+                    <img src="https://picsum.photos/300" alt="" class="img-fluid">
             </div>
 
             @endfor
             <div class="d-flex flex-column justify-content-between">
-                <div>
+                <div class="col-md-4">
                     <h1>{{ $article_to_check->title }}</h1>
                     <h3>Autore:{{ $article_to_check->user->name }}</h3>
                     <h3>{{ $article_to_check->price }}€</h3>
                     {{-- <h3>{{ $article_to_check->category->name }}</h3> --}} {{-- non funziona US 2 --}}
                     <h4>{{ $article_to_check->description }}</h4>
                 </div>
-                <div>
-                    <form action="" method="POST">
+                <div class="col-md-4">
+                    <form action="{{route('reject', ['article'=> $article_to_check])}}" method="POST">
                         @csrf
+                        @method('PATCH')
                         <button class="btn btn-danger">Rifiuta</button>
                     </form>
-                    <form action="" method="POST">
+
+                    <form action="{{route('reject', ['article'=> $article_to_check])}}" method="POST">
                         @csrf
+                        @method('PATCH')
                         <button class="btn btn-success">Accetta</button>
                     </form>
                 </div>
+                @if (session()->has('message'))
+                <div class="row justify-content-center">
+                    <div class="col-5 text-center alert-success">
+                        {{session('message')}}
+                    </div>
+                </div>
+                @endif
+                @else
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        <h1>Nessun articolo da revisionare</h1>
+                        <a href="{{route('homepage')}}">Ritorna alla home</a>
+                    </div>
+                </div>
 
             </div>
+            @endif
         </div>
-        @else
-        <div class="row justify-content-center">
-            <div class="col-12">
-                <h1>Nessun articolo da revisionare</h1>
-                <a href="{{route('homepage')}}">Ritorna alla home</a>
-            </div>
-        </div>
+
     </div>
 
-    @endif
     </div>
 </x-main>

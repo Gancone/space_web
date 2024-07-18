@@ -11,6 +11,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [PublicController::class, 'dashboard'])->name('dashboard');
     Route::get('/article/create', [ArticleController::class, 'create'])->name('article.create');
     Route::get('revisor/index', [RevisorController::class, 'index'])->name('revisor.index');
+    Route::patch('/accept/{article}', [RevisorController::class, 'accept'])->name('accept');
+    Route::patch('/reject/{article}', [RevisorController::class, 'reject'])->name('reject');
+
+    Route::get('/revisor/request', [RevisorController::class, 'becomeRevisor'])->name('become.revisor');
+    Route::get('/make/revisor/{user}', [RevisorController::class, 'makeRevisor'])->name('make.revisor');
 });
 
 Route::get('/article/index', [ArticleController::class, 'index'])->name('article.index');

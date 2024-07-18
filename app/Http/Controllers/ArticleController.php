@@ -15,7 +15,7 @@ class ArticleController extends Controller
 
     public function index()
     {
-        $articles = Article::orderBy('created_at', 'desc')->paginate(10);
+        $articles = Article::where('is_accepted', true)->orderBy('created_at', 'desc')->paginate(10);
         return view('article.index', compact('articles'));
     }
 
@@ -26,12 +26,13 @@ class ArticleController extends Controller
 
     public function byCategory(Category $category)
     {
-        foreach ($category->articles as $article) {
-            if (!$article->category) {
-                dd($article); // Questo mostrerà l'articolo che manca di categoria
-            }
-        }
+        // foreach ($category->articles as $article) {
+        //     if (!$article->category) {
+        //         dd($article); // Questo mostrerà l'articolo che manca di categoria
+        //     }
+        // }
+        $articles = $category->articles->where('is_accepted', true);
 
-        return view('article.byCategory', ['articles' => $category->articles, 'category' => $category]);
+        return view('article.byCategory', compact('articles', 'category'));
     }
 }

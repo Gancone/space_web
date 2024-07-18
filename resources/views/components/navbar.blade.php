@@ -39,26 +39,28 @@
                         </ul>
                     </li>
                 </ul>
-                @guest
-                <a class="btn btn-success" href="{{route('register')}}">Registrati</a>
-                <a class="btn btn-info mx-2" href="{{route('login')}}">Login</a>
-                @endguest
-                @auth
-                <a class="" href="{{route('article.create')}}">Crea Articolo</a>
-                <a class="mx-3" href="{{route('article.index')}}">Articoli</a>
-                @endauth
+                <ul>
+                    @guest
+                    <li><a class="btn btn-success" href="{{route('register')}}">Registrati</a></li>
+                    <li><a class="btn btn-info mx-2" href="{{route('login')}}">Login</a></li>
+                    @endguest
+                    @auth
+
+                    <li><a class="" href="{{route('article.create')}}">Crea Articolo</a></li>
+                    <li><a class="mx-3" href="{{route('article.index')}}">Articoli</a></li>
+                    <li>
+                        <form action="{{route('logout')}}" method="POST">
+                            @csrf
+                            <button class="btn btn-danger ms-2 mt-3">Logout</button>
+                        </form>
+                    </li>
+                    @endauth
+                </ul>
                 <form role="search">
                     <input class="form-control mt-3" type="search" placeholder="Search" aria-label="Search">
                 </form>
 
-                @auth
 
-                <form action="{{route('logout')}}" method="POST">
-                    @csrf
-                    <button class="btn btn-danger ms-2 mt-3">Logout</button>
-                </form>
-
-                @endauth
             </div>
         </div>
     </nav>
