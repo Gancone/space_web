@@ -16,7 +16,7 @@
             <div class="col-12">
                 <h3 class="text-center">Non ci sono ancora articoli</h3>
                 @auth
-                <a href="{{route('article.create')}}" class="btn">Pubblica un articolo</a>
+                <a href="{{route('create.article')}}" class="btn">Pubblica un articolo</a>
                 @endauth
             </div>
 

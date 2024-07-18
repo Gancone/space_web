@@ -46,7 +46,7 @@
                     @endguest
                     @auth
 
-                    <li><a class="" href="{{route('article.create')}}">Crea Articolo</a></li>
+                    <li><a class="" href="{{route('create.article')}}">Crea Articolo</a></li>
                     <li><a class="mx-3" href="{{route('article.index')}}">Articoli</a></li>
                     <li>
                         <form action="{{route('logout')}}" method="POST">

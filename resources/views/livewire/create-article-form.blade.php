@@ -7,7 +7,6 @@
     @endif
     <form wire:submit="store">
 
-        <!-- Text input -->
         <div data-mdb-input-init class="form-outline mb-4">
             <label class="form-label" for="title">Title</label>
             <input type="text" id="title" class="form-control" wire:model.blur="title" @error('title') is-invalid
@@ -18,7 +17,6 @@
             @enderror
         </div>
 
-        <!-- Text input -->
         <div data-mdb-input-init class="form-outline mb-4">
             <label class="form-label" for="price">Price</label>
             <input type="number" id="price" class="form-control" wire:model.blur="price" @error('price') is-invalid

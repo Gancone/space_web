@@ -29,7 +29,7 @@
                         <button class="btn btn-danger">Rifiuta</button>
                     </form>
 
-                    <form action="{{route('reject', ['article'=> $article_to_check])}}" method="POST">
+                    <form action="{{route('accept', ['article'=> $article_to_check])}}" method="POST">
                         @csrf
                         @method('PATCH')
                         <button class="btn btn-success">Accetta</button>

@@ -9,7 +9,7 @@ Route::get('/', [PublicController::class, 'homepage'])->name('homepage');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [PublicController::class, 'dashboard'])->name('dashboard');
-    Route::get('/article/create', [ArticleController::class, 'create'])->name('article.create');
+    Route::get('/article/create', [ArticleController::class, 'create'])->name('create.article');
     Route::get('revisor/index', [RevisorController::class, 'index'])->name('revisor.index');
     Route::patch('/accept/{article}', [RevisorController::class, 'accept'])->name('accept');
     Route::patch('/reject/{article}', [RevisorController::class, 'reject'])->name('reject');
