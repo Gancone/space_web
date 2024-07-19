@@ -56,8 +56,9 @@
                     </li>
                     @endauth
                 </ul>
-                <form role="search">
-                    <input class="form-control mt-3" type="search" placeholder="Search" aria-label="Search">
+                <form role="search" action="{{route('article.search')}}" method="GET">
+                    <input class="form-control mt-3" type="search" placeholder="Search" aria-label="Search"
+                        name="query">
                 </form>
 
 

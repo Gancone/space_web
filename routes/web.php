@@ -23,3 +23,5 @@ Route::get('/category/{category}', [ArticleController::class, 'byCategory'])->na
 
 
 Route::get('revisor/index', [RevisorController::class, 'index'])->middleware('isRevisor')->name('revisor.index');
+
+Route::get('/search/article', [PublicController::class, 'searchArticles'])->name('article.search');
