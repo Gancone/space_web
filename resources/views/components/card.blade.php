@@ -4,6 +4,8 @@
             <div class="card mt-3" style="width: 18rem;">
                 <img src="..." class="card-img-top" alt="...">
                 <div class="card-body">
+                    <img src="{{$article->images->isNotEmpty() ? Storage::url($article->images->first()->path) : 'https://picsum.photos/200'}}"
+                        class="card-img-top" alt="immagine articolo {{$article->title}}">
                     <h5 class="card-title">{{$article->title}}</h5>
                     <p class="card-text">{{$article->description}}.</p>
                     <p class="card-text">{{$article->price}}.</p>

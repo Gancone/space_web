@@ -49,6 +49,39 @@
 
             @enderror
         </div>
+        {{-- immagini --}}
+        <div class="mb-4">
+            <input type="file" wire:model.live="temporary_images" multiple
+                class="form-control @error('temporary_images.*') is-invalid  @enderror" placeholder="Img/">
+            @error('temporary_images')
+            <p class="text-danger"> {{ $message }} </p>
+
+            @enderror
+            @error('temporary_images')
+            <p class="text-danger"> {{ $message }} </p>
+
+            @enderror
+        </div>
+        @if (!empty($images))
+        <div class="row">
+            <div class="col-12">
+                <p>Photo preview:</p>
+                <div class="row py-4">
+                    @foreach ($images as $key => $image)
+                    <div class="col d-flex flex-column align-items-center my-2">
+                        <div class="img-preview mx-auto" style="background-image:url({{ $image->temporaryUrl() }});">
+                            <a type="" class="" wire:click="removeImage({{ $key }})">X</a>
+                        </div>
+                    </div>
+
+                    @endforeach
+                </div>
+            </div>
+        </div>
+
+        @endif
+
+
         <!-- Submit button -->
         <button data-mdb-ripple-init type="submit" class="btn btn-primary btn-block mb-4">Crea Articolo</button>
 </div>
